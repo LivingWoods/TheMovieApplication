@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MovieApplication</string>
+    <string name="nowplaying_activity_title">Now Playing!</string>
+    <string name="searchmovie_activity_title">Search A Movie</string>
+    <string name="searchMovie_textInput_text">Movie name</string>
+    <string name="searchMovie_textInput_hint_text">What movie are you looking for?</string>
+    <string name="searchMovie_button_text">Search</string>
+    <string name="searchTerm_textView_text">Results</string>
+    <string name="movieDetail_activity_title_textView_text">Movie Details</string>
+    <string name="movieTitle_textView_text">Movie title: </string>
+    <string name="releaseYear_textView_text">Year released: </string>
+    <string name="director_textView_text">Director(s): </string>
+    <string name="star_textView_text">Star(s): </string>
+    <string name="synopsis_textView_text">Synopsis:</string>
+    <string name="homeScreen_title_textView_text">The Movie Application</string>
+    <string name="intent_textView_text">What would you like to do?</string>
+    <string name="toPlayingNow_button_text">See whats playing</string>
+    <string name="toSearchMovie_button_text">Search a movie</string>
+    <string name="logo_description">Logo of the application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie_listView_textView_text">Movie name</string>
+    <string name="movie_listView_releaseDateTextView_text">Released</string>
+    <string name="movie_listView_synopsisTextView_text">Synopis</string>
+    <string name="movie_listView_imageView_contentDescription">Poster of the movie</string>
+    <string name="movie_listView_viewButton_Text">View details</string>
+</resources>

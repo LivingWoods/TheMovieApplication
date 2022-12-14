@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.movieapplication.screens.title.TitleFragment"
+        android:label="The Movie Application"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_titleFragment_to_searchMovieFragment"
+            app:destination="@id/searchMovieFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_nowPlayingFragment"
+            app:destination="@id/nowPlayingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMovieFragment"
+        android:name="com.example.movieapplication.screens.searchmovie.SearchMovieFragment"
+        android:label="Search A Movie"
+        tools:layout="@layout/fragment_searchmovie"/>
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.example.movieapplication.screens.nowplaying.NowPlayingFragment"
+        android:label="Now Playing In A Theater Near You"
+        tools:layout="@layout/fragment_nowplaying"/>
+</navigation>

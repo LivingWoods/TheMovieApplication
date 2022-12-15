@@ -22,7 +22,7 @@
                 app:layout_constraintHorizontal_bias="0.047"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/rebel_poster" />
+                app:srcCompat="@mipmap/film_poster_placeholder" />
 
             <TextView
                 android:id="@+id/movie_listView_textView_movieName"

@@ -62,7 +62,7 @@ class SearchMovieViewModel(
         this._searchTerm.value = searchTerm
 
         _searchResults.value = _movies.value!!.filter {
-            it.name.toLowerCase().contains(searchTerm.toLowerCase())
+            it.name.lowercase().contains(searchTerm.lowercase())
         }.map {
             DomainMovie(
                 it.name,

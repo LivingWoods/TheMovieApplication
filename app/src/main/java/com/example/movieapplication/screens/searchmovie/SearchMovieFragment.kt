@@ -29,7 +29,7 @@ class SearchMovieFragment : Fragment() {
         setActionBarTitle("Search a movie")
         setOnClickListeners()
         setObservers()
-        setupRecyclerView()
+        buildRecyclerView()
 
         binding.lifecycleOwner = this
 
@@ -103,12 +103,16 @@ class SearchMovieFragment : Fragment() {
                 binding.searchTermTextView.text = "Results for $newSearchTerm"
             }
         })
+
+        viewModel.searchResults.observe(viewLifecycleOwner, Observer {
+            buildRecyclerView()
+        })
     }
 
     /**
      * Helper method for setting up the recycler view
      */
-    private fun setupRecyclerView() {
+    private fun buildRecyclerView() {
         binding.searchResultsRecyclerView!!.layoutManager = LinearLayoutManager(context)
         binding.searchResultsRecyclerView!!.adapter = SearchMovieAdapter(viewModel.searchResults)
     }

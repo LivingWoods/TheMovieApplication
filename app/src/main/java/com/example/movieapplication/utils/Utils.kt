@@ -11,7 +11,7 @@ object Utils {
     fun hideSoftKeyboard(context: Context, view:View) {
         try {
             val inm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inm?.hideSoftInputFromWindow(view.windowToken, 0)
+            inm.hideSoftInputFromWindow(view.windowToken, 0)
         } catch (e: Exception) {
             // TODO: handle exception
             e.printStackTrace()

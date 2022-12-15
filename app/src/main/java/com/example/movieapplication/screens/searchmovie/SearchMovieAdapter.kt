@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.movieapplication.databinding.LayoutMovielistviewBinding
 import com.example.movieapplication.domain.movie.DomainMovie
 
@@ -22,9 +23,12 @@ class SearchMovieAdapter(private val movieSet: LiveData<List<DomainMovie>>?) : R
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        binding.movieListViewTextViewMovieName.text = movieSet?.value!![position].name
-        binding.movieListViewReleaseDateTextView.text = movieSet?.value!![position].releaseDate
-        binding.movieListViewSynopsisTextView.text = movieSet?.value!![position].synopsis
+        val posterUrl: String = movieSet?.value!![position].posterUrl
+
+        binding.movieListViewTextViewMovieName.text = movieSet.value!![position].name
+        binding.movieListViewReleaseDateTextView.text = movieSet.value!![position].releaseDate
+        binding.movieListViewSynopsisTextView.text = movieSet.value!![position].synopsis
+        Glide.with(context).load(posterUrl).into(binding.movieListViewImageView)
     }
 
     override fun getItemCount() = movieSet?.value?.size?:0

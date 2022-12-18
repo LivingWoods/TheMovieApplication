@@ -24,6 +24,7 @@
 
         <Button
             android:id="@+id/searchMovie_button"
+            style="@style/style_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
@@ -35,6 +36,7 @@
 
         <TextView
             android:id="@+id/searchTerm_textView"
+            style="@style/style_subtitle"
             android:layout_width="164dp"
             android:layout_height="26dp"
             android:text="@string/searchTerm_textView_text"
@@ -43,7 +45,7 @@
             app:layout_constraintHorizontal_bias="0.583"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="389dp"

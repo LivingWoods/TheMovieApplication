@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.movieapplication.screens.searchmovie.SearchMovieViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +28,9 @@
                 app:layout_constraintHorizontal_bias="0.047"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/film_poster_placeholder" />
+                app:srcCompat="@mipmap/film_poster_placeholder"
+                />
+            <!--                app:moviePoster="@{viewModel.searchResults.get(0).posterUrl}"-->
 
             <TextView
                 android:id="@+id/movie_listView_textView_movieName"

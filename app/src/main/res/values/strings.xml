@@ -17,11 +17,12 @@
     <string name="toPlayingNow_button_text">See whats playing</string>
     <string name="toSearchMovie_button_text">Search a movie</string>
     <string name="logo_description">Logo of the application</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movie_listView_textView_text">Movie name</string>
     <string name="movie_listView_releaseDateTextView_text">Released</string>
     <string name="movie_listView_synopsisTextView_text">Synopis</string>
     <string name="movie_listView_imageView_contentDescription">Poster of the movie</string>
     <string name="movie_listView_viewButton_Text">View details</string>
+    <string name="overflow_home">Home</string>
+    <string name="overflow_searchMovie">Search Movie</string>
+    <string name="overflow_lastSearch">Last Searched</string>
 </resources>

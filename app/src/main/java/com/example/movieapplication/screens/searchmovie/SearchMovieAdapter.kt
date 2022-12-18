@@ -1,15 +1,22 @@
 package com.example.movieapplication.screens.searchmovie
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movieapplication.R
 import com.example.movieapplication.databinding.LayoutMovielistviewBinding
-import com.example.movieapplication.domain.movie.DomainMovie
+import com.example.movieapplication.domain.movies.DomainMovie
+import com.example.movieapplication.utils.setMovieName
+import com.example.movieapplication.utils.setMoviePoster
+import com.example.movieapplication.utils.setMovieReleaseDate
+import com.example.movieapplication.utils.setSynopsis
 
-class SearchMovieAdapter(private val movieSet: LiveData<List<DomainMovie>>?) : RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
+class SearchMovieAdapter(private val movieSet: LiveData<List<DomainMovie>?>?) : RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
     lateinit var binding: LayoutMovielistviewBinding
     lateinit var context: Context
 
@@ -22,13 +29,17 @@ class SearchMovieAdapter(private val movieSet: LiveData<List<DomainMovie>>?) : R
         return ViewHolder(binding)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val posterUrl: String = movieSet?.value!![position].posterUrl
-
-        binding.movieListViewTextViewMovieName.text = movieSet.value!![position].name
-        binding.movieListViewReleaseDateTextView.text = movieSet.value!![position].releaseDate
-        binding.movieListViewSynopsisTextView.text = movieSet.value!![position].synopsis
-        Glide.with(context).load(posterUrl).into(binding.movieListViewImageView)
+        if (movieSet?.value != null) {
+            binding.movieListViewTextViewMovieName.setMovieName(movieSet.value!![position].name)
+            binding.movieListViewReleaseDateTextView.setMovieReleaseDate(movieSet.value!![position].releaseDate)
+            binding.movieListViewSynopsisTextView.setSynopsis(movieSet.value!![position].synopsis)
+            binding.movieListViewImageView.setMoviePoster(movieSet.value!![position].posterUrl)
+        } else
+        {
+            // TODO: handle no results
+        }
     }
 
     override fun getItemCount() = movieSet?.value?.size?:0

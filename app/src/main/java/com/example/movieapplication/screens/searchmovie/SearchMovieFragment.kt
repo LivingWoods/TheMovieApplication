@@ -1,14 +1,15 @@
 package com.example.movieapplication.screens.searchmovie
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapplication.R
 import com.example.movieapplication.database.movies.MovieDatabase
@@ -26,7 +27,6 @@ class SearchMovieFragment : Fragment() {
         viewModel = createViewModel()
 
         /* SETUP FRAGMENT */
-        setActionBarTitle("Search a movie")
         setOnClickListeners()
         setObservers()
         buildRecyclerView()
@@ -69,22 +69,13 @@ class SearchMovieFragment : Fragment() {
      */
     private fun createViewModel() : SearchMovieViewModel {
         val application = requireNotNull(this.activity).application
-        val dataSource = MovieDatabase.getInstance(application).movieDatabaseDao
-        val viewModelFactory = SearchMovieViewModelFactory(dataSource, application)
+        val viewModelFactory = SearchMovieViewModel.Factory(application)
 
         return ViewModelProvider(this, viewModelFactory)[SearchMovieViewModel::class.java]
     }
 
     /**
-     * Helper method for setting the title of the fragment in the action bar
-     */
-    // TODO: Create extension function
-    private fun setActionBarTitle(title: String) {
-        requireActivity().title = title
-    }
-
-    /**
-     * Helper method for setting the title of the fragment in the action bar
+     * Helper method for setting the click listeners
      */
     private fun setOnClickListeners() {
         binding.searchMovieButton.setOnClickListener {

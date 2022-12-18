@@ -12,19 +12,22 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_searchMovieFragment"
-            app:destination="@id/searchMovieFragment" />
-        <action
-            android:id="@+id/action_titleFragment_to_nowPlayingFragment"
-            app:destination="@id/nowPlayingFragment" />
+            app:destination="@id/searchMovieFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/searchMovieFragment"
         android:name="com.example.movieapplication.screens.searchmovie.SearchMovieFragment"
-        android:label="Search A Movie"
-        tools:layout="@layout/fragment_searchmovie"/>
-    <fragment
-        android:id="@+id/nowPlayingFragment"
-        android:name="com.example.movieapplication.screens.nowplaying.NowPlayingFragment"
-        android:label="Now Playing In A Theater Near You"
-        tools:layout="@layout/fragment_nowplaying"/>
+        android:label="Search A Movie">
+        <action
+            android:id="@+id/action_searchMovieFragment_to_titleFragment"
+            app:destination="@id/titleFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
 </navigation>
